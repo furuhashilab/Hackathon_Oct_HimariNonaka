@@ -5,8 +5,15 @@
 
 - 公開ページ（GitHub Pages）: https://furuhashilab.github.io/Hackathon_Oct_HimariNonaka/
 
-> **現在の状態:** 現在の地図（地理院地図・航空写真・OpenStreetMap）を表示する土台まで完成しています。
-> 古地図は国立国会図書館デジタルコレクションから選定中で、決まり次第追加します。
+古地図には、明治13〜19年（1880〜1886年）に作られた **迅速測図**（農研機構「[歴史的農業環境閲覧システム](https://habs.rad.naro.go.jp/)」）を使っています。
+淵野辺駅の開業（1908年）より前の、畑と林が広がる相模原台地の様子を、今の地図と重ねて見比べられます。
+
+## 使い方
+
+1. 公開ページを開くと、迅速測図（明治）が表示されます
+2. 画面下中央の **スライダー** を動かすと、迅速測図が透けて、下の現在の地図が見えます
+3. 画面下左の地図を切り替えると、下に敷く現在の地図を **地理院地図・航空写真・OpenStreetMap** から選べます
+4. 右下の「i」ボタンで、表示中の地図の出典・ライセンスを確認できます
 
 ## このリポジトリについて
 
@@ -27,6 +34,9 @@
 
 Maplat は、古地図や絵地図を **ゆがみを直さずにそのまま** 現在の地図と対応づけて表示できるオープンソースの古地図ビューアです。
 
+この作品では、Maplat の **タイル地図の重ね合わせ機能**（`maptype: "overlay"`）を使い、位置合わせ済みで公開されている迅速測図のタイルを、現在の地図の上に重ねて透明度を変えながら比較できるようにしました。
+（Maplat のもう一つの特徴である「ゆがんだ古地図画像を、対応点をもとにそのまま位置合わせする機能」は、今回は使っていません。）
+
 FOSS4G Hiroshima 2026 での紹介:
 
 - 「Bringing Old Maps & Illustrated Maps to the Web: 10 Years of Maplat and Turning Misalignment into Innovation」（大塚恒平, 2026-09-02）
@@ -40,7 +50,7 @@ FOSS4G Hiroshima 2026 での紹介:
 | ファイル・フォルダ | 役割 |
 |---|---|
 | `index.html` | Web ページ本体。OpenLayers と Maplat UI を CDN（jsDelivr）から読み込みます |
-| `apps/fuchinobe.json` | 地図アプリの設定（表示する地図の種類、最初に表示する位置・ズームなど） |
+| `apps/fuchinobe.json` | 地図アプリの設定（迅速測図と現在の地図の種類、最初に表示する位置・ズームなど）。迅速測図のタイルは農研機構のサーバーから直接読み込みます |
 | `assets/` | Maplat UI が使う言語ファイル・アイコン画像（`@maplat/ui` 1.1.0 から複製） |
 | `LICENSE` | このリポジトリの作品のライセンス（CC BY 4.0） |
 
@@ -70,14 +80,14 @@ python -m http.server 8000
 | OpenLayers（`ol` 10.11.0。CDN から読み込み） | OpenLayers Contributors | [BSD 2-Clause License](https://github.com/openlayers/openlayers/blob/main/LICENSE.md) |
 | 地理院地図（標準地図・航空写真） | 出典: 国土地理院 | [国土地理院コンテンツ利用規約](https://www.gsi.go.jp/kikakuchousei/kikakuchousei40182.html) |
 | OpenStreetMap | © OpenStreetMap contributors | [ODbL](https://www.openstreetmap.org/copyright) |
-| 古地図画像 | （選定後に記載） | （選定後に記載。保護期間満了のものを使用予定） |
+| 迅速測図（第一軍管地方二万分一迅速測図原図より作製したタイル。農研機構のサーバーから読み込み） | 出典: 農研機構農業環境研究部門「[歴史的農業環境閲覧システム](https://habs.rad.naro.go.jp/)」 | [クリエイティブ・コモンズ 表示 2.1 日本（CC BY 2.1 JP）](https://creativecommons.org/licenses/by/2.1/jp/) |
 
 ## 制作の進み具合
 
 - [x] ステップ1: README と LICENSE（CC BY 4.0）の作成
 - [x] ステップ2: Maplat で現在の地図を表示する土台の作成
-- [ ] GitHub Pages での公開確認
-- [ ] ステップ3: 古地図の選定と MaplatEditor でのデータ作成
-- [ ] ステップ4: 古地図の表示
+- [x] GitHub Pages での公開確認
+- [x] ステップ3: 古地図の選定（農研機構の迅速測図）
+- [x] ステップ4: 古地図の表示（Maplat のタイル重ね合わせ機能）
 - [ ] ステップ5: 仕上げ（出典表記・スマホ表示の確認）
 - [ ] ステップ6: 発表準備（ブログ・グラレコ）
