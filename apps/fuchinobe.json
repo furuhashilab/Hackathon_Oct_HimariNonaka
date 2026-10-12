@@ -1,0 +1,15 @@
+{
+  "appName": {
+    "ja": "淵野辺 今昔マップ",
+    "en": "Fuchinobe Then & Now Map"
+  },
+  "lang": "ja",
+  "startFrom": "gsi",
+  "sources": [
+    "gsi",
+    "gsi_ortho",
+    "osm"
+  ],
+  "homePosition": [139.4036, 35.5666],
+  "defaultZoom": 15
+}
