@@ -58,7 +58,9 @@ python -m http.server 8000
 このリポジトリで作成した作品（HTML・設定ファイル・文章など）は
 **[クリエイティブ・コモンズ 表示 4.0 国際（CC BY 4.0）](https://creativecommons.org/licenses/by/4.0/deed.ja)** で公開します。
 
-© 2026 Himari Nonaka / Furuhashi Laboratory, Aoyama Gakuin University
+© 2026 Himari Nonaka
+
+所属: 青山学院大学 古橋研究室（Furuhashi Laboratory, Aoyama Gakuin University）
 
 ただし、以下の第三者の素材・ソフトウェアには、それぞれのライセンス・利用条件が適用されます（CC BY 4.0 の対象外です）。
 
